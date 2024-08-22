@@ -1,10 +1,10 @@
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.ListIterator;
 public class Main
 {
 	public static void main(String[] args) {
-		Set ts = new TreeSet();
+		List ts = new ArrayList();
 		
         //Add element to TreeSet
 		ts.add("Rushikesh");
@@ -12,10 +12,16 @@ public class Main
 		ts.add("Ramesh");
 		ts.add("Tekale");
 
-		Iterator it = ts.iterator();
+		ListIterator it = ts.listIterator();
 
+		// Forward Iterator
 		while(it.hasNext()){
 			System.out.println(it.next());
+		}
+
+		//backword Iterator
+		while (it.hasPrevious()) {
+			System.out.println(it.previous());
 		}
 	}
 }
