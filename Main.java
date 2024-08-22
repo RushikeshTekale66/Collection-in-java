@@ -1,30 +1,30 @@
 import java.util.List;
-import java.util.ArrayList;
+import java.util.LinkedList;
 public class Main
 {
 	public static void main(String[] args) {
 	    
-	    //Array List
-		List listArray = new ArrayList();
+	    //Linked List
+		List listLinked = new LinkedList();
 		
 		//1 .add();
-		listArray.add("Rushikesh Tekale");
-		listArray.add(24);
-		listArray.add("Pune");
+		listLinked.add("Rushikesh Tekale");
+		listLinked.add(24);
+		listLinked.add("Pune");
 		
 		//2 .indexOf();
-		System.out.println(listArray.indexOf("Pune"));
+		System.out.println(listLinked.indexOf("Pune"));
 		
 		//3 add by index 
-		listArray.add(2, "Dharashiv");
-		System.out.println(listArray);
+		listLinked.add(2, "Dharashiv");
+		System.out.println(listLinked);
 		
 		// 4 exist
-		System.out.println(listArray.contains("Pune"));
+		System.out.println(listLinked.contains("Pune"));
 		
 		//5 remove
-		System.out.println(listArray.remove(2));
-		System.out.println(listArray);
+		System.out.println(listLinked.remove(2));
+		System.out.println(listLinked);
 		
 	}
 }
