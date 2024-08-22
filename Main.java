@@ -3,48 +3,35 @@ import java.util.HashSet;
 public class Main
 {
 	public static void main(String[] args) {
+		Set hs = new HashSet();
 		
-		Set set1 = new HashSet();
+       		 //Add element to HashSet		
+		hs.add(100);
+		hs.add("Rushikesh");
+		hs.add ("Tekale");
+		hs.add("Tekale");
+		System.out.println(hs);
 		
-		//Add element
-		set1.add("Rushikesh");
-		set1.add("Tekale");
-		set1.add(7887);
-		set1.add("Pune");
-		System.out.println(set1);
-
-        //Add set in set
-        Set set2 = new HashSet();
-        set2.add("Rohan");
-        set2.add("Tekale");
-        set2.add(8263);
-
-        set1.addAll(set2);
-        System.out.println(set1);
+        		//Add two HashSet
+		Set hs2 = new HashSet();
+		hs2.add("Rohan");
+		hs2.add("Kolegaon");
 		
-		//Check element contain set1
-		System.out.println(set1.contains(7887));
-
-        //Check set2 elements in set1
-        System.out.println(set1.containsAll(set2));
+		hs.addAll(hs2);
+		System.out.println(hs);
 		
-		//remove element from set 
-		set1.remove("Pune");
-		System.out.println(set1);
-
-        //check set is empty or not
-        System.out.println(set1.isEmpty());
-
-        //remove the element in set
-        System.out.println(set1.remove(7887));
-
-        //remove set2 in set1
-        System.out.println(set1.removeAll(set2));
+		//check element present in HashSet
+		System.out.println(hs.contains("Rushikesh"));
 		
-		//size of set 
-		System.out.println(set1.size());
-
-        // print set element
-        System.out.println(set1);
+		//Check HashSet present in HashSet
+		System.out.println(hs.containsAll(hs2));
+		
+		//remove element in HashSet
+		hs2.remove("Rohan");
+		System.out.println(hs);
+		
+		//size of HashSet
+		System.out.println(hs.size());
+		
 	}
 }
