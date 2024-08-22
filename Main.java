@@ -1,30 +1,50 @@
-import java.util.List;
-import java.util.Vector;
+import java.util.Set;
+import java.util.HashSet;
 public class Main
 {
 	public static void main(String[] args) {
-	    
-	    //Linked List
-		List listVector = new Vector();
 		
-		//1 .add();
-		listVector.add("Rushikesh Tekale");
-		listVector.add(24);
-		listVector.add("Pune");
+		Set set1 = new HashSet();
 		
-		//2 .indexOf();
-		System.out.println(listVector.indexOf("Pune"));
+		//Add element
+		set1.add("Rushikesh");
+		set1.add("Tekale");
+		set1.add(7887);
+		set1.add("Pune");
+		System.out.println(set1);
+
+        //Add set in set
+        Set set2 = new HashSet();
+        set2.add("Rohan");
+        set2.add("Tekale");
+        set2.add(8263);
+
+        set1.addAll(set2);
+        System.out.println(set1);
 		
-		//3 add by index 
-		listVector.add(2, "Dharashiv");
-		System.out.println(listVector);
+		//Check element contain set1
+		System.out.println(set1.contains(7887));
+
+        //Check set2 elements in set1
+        System.out.println(set1.containsAll(set2));
 		
-		// 4 exist
-		System.out.println(listVector.contains("Pune"));
+		//remove element from set 
+		set1.remove("Pune");
+		System.out.println(set1);
+
+        //check set is empty or not
+        System.out.println(set1.isEmpty());
+
+        //remove the element in set
+        System.out.println(set1.remove(7887));
+
+        //remove set2 in set1
+        System.out.println(set1.removeAll(set2));
 		
-		//5 remove
-		System.out.println(listVector.remove(2));
-		System.out.println(listVector);
-		
+		//size of set 
+		System.out.println(set1.size());
+
+        // print set element
+        System.out.println(set1);
 	}
 }
