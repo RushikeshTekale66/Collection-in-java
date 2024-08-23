@@ -1,68 +1,80 @@
+import java.util.Scanner;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
-class Main{
-	
-	public static void main(String [] args) {
-		Student st = new Student();
-		st.insert();
-		st.sort();
-		st.display();
+public class Main
+{
+	public static void main(String[] args) {
+		Bank b = new Bank();
+		b.insert();
+		b.display();
 	}
 }
 
 
- class Student {
-	private String name;
-	private int id;
-	private double marks;
-	
-	List <Student> l1 = new ArrayList<Student>();
-	
-	public Student(String name, int id, double marks) {
-		this.name = name;
-		this.id = id;
-		this.marks = marks;
-	}
-	
-	public Student() {};
-	
-	public void insert() {
-		l1.add(new Student("Rushikesh", 101, 81.70));
-		l1.add(new Student("Tushar", 104, 89.90));
-		l1.add(new Student("Rohan", 103, 78.90));
-		l1.add(new Student("Swara", 102, 98.90));
-		
-		Iterator i = l1.iterator();
-		System.out.println("Before sorting........................................");
-		while(i.hasNext()) {
-			System.out.println(i.next());
-		}
-	}
-	
-	@Override
-	public String toString() {
-		return "Student Name " + name + " id " + id + " Marks " + marks;
-	}
-	
-	public void sort() {
-		for(int i=0; i<l1.size(); i++) {
-			for(int j=0; j<l1.size(); j++) {
-				if(l1.get(i).marks > l1.get(j).marks) {
-					Student temp = l1.get(i);
-					l1.set(i, l1.get(j));
-					l1.set(j, temp);
-				}
-			}
-		}
-	}
-	
-	public void display() {
-		System.out.println("After sorting...................................");
-		Iterator i = l1.iterator();
-		while(i.hasNext()) {
-			System.out.println(i.next());
-		}
-	}
+class Bank{
+    private String name;
+    private int balance;
+    private int age;
+    private String address;
+    
+    List <Bank> al = new ArrayList<Bank>();
+    Scanner sc = new Scanner(System.in);
+    
+    public Bank (String name, int balance, int age, String address){
+        this.name = name;
+        this.balance = balance;
+        this.age = age;
+        this.address = address;
+    }
+    
+    public Bank(){}
+    
+    public String toString(){
+        return "Name : " + name + ", Age : " + age + ", Balance : " + balance + ", Address " + address;
+    }
+    
+    public void insert(){
+        System.out.println("Enter the customer you want to add ");
+        int customer = sc.nextInt();
+        
+        for(int i=0; i<customer; i++){
+            System.out.println("Enter the customer name");
+            String n = sc.next();
+            System.out.println("Enter the balance ");
+            int b = sc.nextInt();
+            System.out.println("Enter the age of customer ");
+            int a = sc.nextInt();
+            System.out.println("Enter the address of customer");
+            String ad = sc.next();
+            
+            al.add(new Bank(n, b, a, ad));
+        }
+        
+        System.out.println("Customer information before the sorting");
+        Iterator it = al.iterator();
+        
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+    }
+    
+    public void display(){
+        for(int i=0; i<al.size(); i++){
+            for(int j=i+1; j<al.size(); j++){
+                if(al.get(i).balance > al.get(j).balance){
+                    Bank temp = al.get(i);
+                    al.set(i, al.get(j));
+                    al.set(j, temp);
+                }
+            }
+        }
+        
+        System.out.println("Customer information after sorting");
+        Iterator it = al.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+    }
 }
