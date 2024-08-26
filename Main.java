@@ -1,80 +1,62 @@
-import java.util.Scanner;
+
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collections;
 
 public class Main
 {
 	public static void main(String[] args) {
-		Bank b = new Bank();
-		b.insert();
-		b.display();
+		List <Vehicle> l1 = new ArrayList<Vehicle>();
+		
+		l1.add(new Vehicle("BMW", 2332, 10000));
+		l1.add(new Vehicle("Oddi", 3344, 20000));
+		l1.add(new Vehicle("Mercidies", 4444, 40000));
+		l1.add(new Vehicle("Range rover", 5555, 30000));
+		
+		System.out.println("Original List");
+		for(Vehicle v : l1){
+		    System.out.println(v);
+		}
+		
+		Collections.sort(l1);
+		System.out.println();
+		
+		System.out.println("After sorting");
+		for(Vehicle v : l1){
+		    System.out.println(v);
+		}
 	}
 }
 
 
-class Bank{
+
+class Vehicle implements Comparable<Vehicle>{
     private String name;
-    private int balance;
-    private int age;
-    private String address;
+    private int vno;
+    private int price;
     
-    List <Bank> al = new ArrayList<Bank>();
-    Scanner sc = new Scanner(System.in);
-    
-    public Bank (String name, int balance, int age, String address){
+    public Vehicle(String name, int vno, int price){
         this.name = name;
-        this.balance = balance;
-        this.age = age;
-        this.address = address;
+        this.vno= vno;
+        this.price = price;
     }
+
     
-    public Bank(){}
-    
+    @Override
     public String toString(){
-        return "Name : " + name + ", Age : " + age + ", Balance : " + balance + ", Address " + address;
+        return "Vehicle [Name : " + name + ", Vno : " + vno + ", price : " + price ;
     }
     
-    public void insert(){
-        System.out.println("Enter the customer you want to add ");
-        int customer = sc.nextInt();
-        
-        for(int i=0; i<customer; i++){
-            System.out.println("Enter the customer name");
-            String n = sc.next();
-            System.out.println("Enter the balance ");
-            int b = sc.nextInt();
-            System.out.println("Enter the age of customer ");
-            int a = sc.nextInt();
-            System.out.println("Enter the address of customer");
-            String ad = sc.next();
-            
-            al.add(new Bank(n, b, a, ad));
+    @Override
+    public int compareTo(Vehicle o){
+        if(this.price==o.price){
+            return 0;
         }
-        
-        System.out.println("Customer information before the sorting");
-        Iterator it = al.iterator();
-        
-        while(it.hasNext()){
-            System.out.println(it.next());
+        else if(this.price>o.price){
+            return 1;
         }
-    }
-    
-    public void display(){
-        for(int i=0; i<al.size(); i++){
-            for(int j=i+1; j<al.size(); j++){
-                if(al.get(i).balance > al.get(j).balance){
-                    Bank temp = al.get(i);
-                    al.set(i, al.get(j));
-                    al.set(j, temp);
-                }
-            }
-        }
-        
-        System.out.println("Customer information after sorting");
-        Iterator it = al.iterator();
-        while(it.hasNext()){
-            System.out.println(it.next());
+        else{
+            return -1;
         }
     }
 }
