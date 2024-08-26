@@ -1,62 +1,57 @@
-
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
-public class Main
-{
-	public static void main(String[] args) {
-		List <Vehicle> l1 = new ArrayList<Vehicle>();
-		
-		l1.add(new Vehicle("BMW", 2332, 10000));
-		l1.add(new Vehicle("Oddi", 3344, 20000));
-		l1.add(new Vehicle("Mercidies", 4444, 40000));
-		l1.add(new Vehicle("Range rover", 5555, 30000));
-		
-		System.out.println("Original List");
-		for(Vehicle v : l1){
-		    System.out.println(v);
-		}
-		
-		Collections.sort(l1);
-		System.out.println();
-		
-		System.out.println("After sorting");
-		for(Vehicle v : l1){
-		    System.out.println(v);
-		}
-	}
+class Main{
+    public static void main(String [] args){
+        List<Employee> l1 = new ArrayList<Employee>();
+        
+        l1.add(new Employee("XYZ", 103, 1000));
+        l1.add(new Employee("ABC", 102, 2000));
+        l1.add(new Employee("MNO", 101, 4000));
+        l1.add(new Employee("PQR", 104, 3000));
+        
+        System.out.println("Original list");
+        for(Employee e : l1){
+            System.out.println(e);
+        }
+        
+        System.out.println();
+        System.out.println("Sorted List");
+        
+        Collections.sort(l1, new IdComparator());
+        for(Employee e : l1){
+            System.out.println(e);
+        }
+    }
 }
 
 
-
-class Vehicle implements Comparable<Vehicle>{
-    private String name;
-    private int vno;
-    private int price;
+//ADD element to the list using constructor
+class Employee{
+    String name;
+    int id;
+    double salary;
     
-    public Vehicle(String name, int vno, int price){
+    public Employee(String name, int id, double salary){
         this.name = name;
-        this.vno= vno;
-        this.price = price;
+        this.id = id;
+        this.salary = salary;
     }
-
     
     @Override
     public String toString(){
-        return "Vehicle [Name : " + name + ", Vno : " + vno + ", price : " + price ;
-    }
-    
+        return "Name : " + name + ", Id : " + id + ", Salary : " + salary;
+    }   
+}
+
+
+//Comparator Interface
+
+class IdComparator implements Comparator<Employee>{
     @Override
-    public int compareTo(Vehicle o){
-        if(this.price==o.price){
-            return 0;
-        }
-        else if(this.price>o.price){
-            return 1;
-        }
-        else{
-            return -1;
-        }
+    public int compare(Employee o1, Employee o2){
+        return o1.id-o2.id;
     }
 }
