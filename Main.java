@@ -1,22 +1,16 @@
-import java.util.LinkedHashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 public class Main {
 	public static void main(String [] args){
-		Set hs = new LinkedHashSet<>();
-		hs.add("Rushikesh");
-		hs.add("Rushikesh");
-		hs.add(100);
-		hs.add(100);
-		hs.add(null);
-		hs.add(null);
-		hs.add("Rohan");
-		hs.add("Abhijeet");
+		Map m = new HashMap();
+		m.put(5, "Rushikesh");
+		m.put(4, "Rushikesh");
+		m.put(4, "Rushikesh");
+		m.put(3, "Tekale");
+		m.put(null, null);
+		m.put(null, null);
 
-		Iterator it = hs.iterator();
-
-		while (it.hasNext()) {
-			System.out.println(it.next());
-		}
+		System.out.println(m.values());
+		System.out.println(m.keySet());
 	}
 }
