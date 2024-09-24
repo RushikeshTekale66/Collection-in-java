@@ -1,25 +1,22 @@
-import java.util.List;
-import java.util.Vector;
+import java.util.HashSet;
 import java.util.Iterator;
-
-class Main{
+import java.util.Set;
+public class Main {
 	public static void main(String [] args){
-		List al = new Vector();
-		al.add("Rushikesh");
-		al.add("Rushikesh");
-		al.add(10);
-		al.add(10);
-		al.add(null);
-		al.add(null);
+		Set hs = new HashSet();
+		hs.add("Rushikesh");
+		hs.add("Rushikesh");
+		hs.add(100);
+		hs.add(100);
+		hs.add(null);
+		hs.add(null);
+		hs.add("Rohan");
+		hs.add("Abhijeet");
 
+		Iterator it = hs.iterator();
 
-		Iterator it = al.iterator();
 		while (it.hasNext()) {
 			System.out.println(it.next());
-		}
-
-		for(int i=0; i<al.size(); i++){
-			System.out.println(al.get(i));
 		}
 	}
 }
