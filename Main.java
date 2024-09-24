@@ -1,10 +1,10 @@
 import java.util.List;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Iterator;
 
 class Main{
 	public static void main(String [] args){
-		List al = new ArrayList();
+		List al = new LinkedList();
 		al.add("Rushikesh");
 		al.add("Rushikesh");
 		al.add(10);
