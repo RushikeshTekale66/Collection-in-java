@@ -1,9 +1,9 @@
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Iterator;
 import java.util.Set;
 public class Main {
 	public static void main(String [] args){
-		Set hs = new HashSet();
+		Set hs = new LinkedHashSet<>();
 		hs.add("Rushikesh");
 		hs.add("Rushikesh");
 		hs.add(100);
